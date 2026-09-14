@@ -1469,17 +1469,7 @@ Engine.setMcpPort = Engine_setMcpPort_overwrite
 -- applying section
 
 local function checkIfVehiclenameInvalid(vehicleName, playerName, v) -- TODO: find a different way of doing this because it thinks saved configs of modded vehicles are valid
-	local vehiclesList = extensions.core_vehicles.getModelList()
-
-	if vehiclesList.models[vehicleName] ~= nil then return false end
-
-	if v then
-		v.isIllegal = true
-	end
-
-	log('W', 'applyVehSpawn', "The received vehicle "..vehicleName.." is not valid, cancelling the spawn (likely a missing mod)")
-	if playerName then UI.showNotification("Player "..playerName.." spawned an illegal vehicle ("..vehicleName.."), it was skipped", ""..playerName..""..vehicleName.."illegal", "remove_circle") end
-	return true
+	return false
 end
 
 
